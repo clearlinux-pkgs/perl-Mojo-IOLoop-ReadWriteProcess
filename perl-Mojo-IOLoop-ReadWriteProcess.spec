@@ -4,13 +4,14 @@
 #
 Name     : perl-Mojo-IOLoop-ReadWriteProcess
 Version  : 0.24
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/M/MU/MUDLER/Mojo-IOLoop-ReadWriteProcess-0.24.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MU/MUDLER/Mojo-IOLoop-ReadWriteProcess-0.24.tar.gz
 Summary  : 'Execute external programs or internal code blocks as separate process.'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-1.0
 Requires: perl-Mojo-IOLoop-ReadWriteProcess-license = %{version}-%{release}
+Requires: perl-Mojo-IOLoop-ReadWriteProcess-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Mojolicious)
 
@@ -22,7 +23,6 @@ BuildRequires : perl(Mojolicious)
 Summary: dev components for the perl-Mojo-IOLoop-ReadWriteProcess package.
 Group: Development
 Provides: perl-Mojo-IOLoop-ReadWriteProcess-devel = %{version}-%{release}
-Requires: perl-Mojo-IOLoop-ReadWriteProcess = %{version}-%{release}
 Requires: perl-Mojo-IOLoop-ReadWriteProcess = %{version}-%{release}
 
 %description dev
@@ -37,8 +37,18 @@ Group: Default
 license components for the perl-Mojo-IOLoop-ReadWriteProcess package.
 
 
+%package perl
+Summary: perl components for the perl-Mojo-IOLoop-ReadWriteProcess package.
+Group: Default
+Requires: perl-Mojo-IOLoop-ReadWriteProcess = %{version}-%{release}
+
+%description perl
+perl components for the perl-Mojo-IOLoop-ReadWriteProcess package.
+
+
 %prep
 %setup -q -n Mojo-IOLoop-ReadWriteProcess-0.24
+cd %{_builddir}/Mojo-IOLoop-ReadWriteProcess-0.24
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -69,33 +79,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Cpuacct.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Cpuset.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Devices.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Freezer.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Memory.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Netcls.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Netprio.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/PID.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/RDMA.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v2.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/CPU.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/IO.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/Memory.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/PID.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/RDMA.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Container.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Exception.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Namespace.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Pool.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Queue.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Session.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Shared/Lock.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Shared/Memory.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Mojo/IOLoop/ReadWriteProcess/Shared/Semaphore.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -128,3 +111,33 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/perl-Mojo-IOLoop-ReadWriteProcess/73e24a2cd5ad78be7ec077f7a151a688f7eb298d
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Cpuacct.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Cpuset.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Devices.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Freezer.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Memory.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Netcls.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/Netprio.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/PID.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v1/RDMA.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v2.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/CPU.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/IO.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/Memory.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/PID.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/CGroup/v2/RDMA.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Container.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Exception.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Namespace.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Pool.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Queue.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Session.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Shared/Lock.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Shared/Memory.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Mojo/IOLoop/ReadWriteProcess/Shared/Semaphore.pm
