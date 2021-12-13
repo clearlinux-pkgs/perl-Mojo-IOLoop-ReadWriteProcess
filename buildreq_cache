@@ -1,2 +1,3 @@
-0.31
+0.32
 perl(Mojolicious)
+perl(Test::Exception)
