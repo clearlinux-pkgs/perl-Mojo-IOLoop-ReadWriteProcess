@@ -4,7 +4,7 @@
 #
 Name     : perl-Mojo-IOLoop-ReadWriteProcess
 Version  : 0.33
-Release  : 25
+Release  : 26
 URL      : https://cpan.metacpan.org/authors/id/S/SZ/SZARATE/Mojo-IOLoop-ReadWriteProcess-0.33.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SZ/SZARATE/Mojo-IOLoop-ReadWriteProcess-0.33.tar.gz
 Summary  : 'Execute external programs or internal code blocks as separate process.'
