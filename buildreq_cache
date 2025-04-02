@@ -1,3 +1,4 @@
-0.34
+1.1.0
 perl(Mojolicious)
 perl(Test::Exception)
+perl(Test::Pod)
